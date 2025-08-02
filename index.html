@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Илья & Ирина - Свадьба 27.09.2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8faf5;
+            color: #3a5a40;
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        /* Зелёные боковые полосы */
+        body::before, body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            background-color: #e8f5e9;
+            z-index: -1;
+        }
+        body::before {
+            left: 0;
+        }
+        body::after {
+            right: 0;
+        }
+        
+        @media (max-width: 900px) {
+            body::before, body::after {
+                width: 50px;
+            }
+        }
+        @media (max-width: 600px) {
+            body::before, body::after {
+                width: 20px;
+            }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            background-color: #f8faf5;
+        }
+        
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: #2b4634;
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .wedding-image {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #e0e6d8;
+        }
+        
+        .names {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: #3a5a40;
+            margin: 30px 0;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .date {
+            font-size: 2rem;
+            color: #2b4634;
+            margin: 40px 0;
+            font-weight: 400;
+        }
+        
+        /* Счётчик до свадьбы */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            font-family: 'Playfair Display', serif;
+        }
+        .countdown-item {
+            background: #edf3e9;
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 80px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+        }
+        .countdown-number {
+            font-size: 2rem;
+            color: #6b8f71;
+            font-weight: 700;
+        }
+        .countdown-label {
+            font-size: 0.9rem;
+            color: #3a5a40;
+            margin-top: 5px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #2b4634;
+            margin: 50px 0 40px;
+            letter-spacing: 0.3px;
+        }
+        
+        /* Таймлайн */
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: #b8c9b5;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 4px solid #6b8f71;
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        .time {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            color: #6b8f71;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        
+        .event {
+            background-color: #edf3e9;
+            padding: 12px 18px;
+            border-radius: 6px;
+            display: inline-block;
+            max-width: 220px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            border-left: 3px solid #6b8f71;
+        }
+        
+        /* Яндекс.Карта */
+        .map-container {
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #d8e2d3;
+            height: 400px;
+        }
+        #yandex-map {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Google Форма */
+        .google-form-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #edf3e9;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .google-form {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+        
+        .location, .dress-code {
+            font-size: 1.15rem;
+            margin: 30px 0;
+            line-height: 1.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #3a5a40;
+        }
+        
+        .footer {
+            margin-top: 60px;
+            font-size: 1.5rem;
+            color: #3a5a40;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #b8c9b5, transparent);
+            width: 60%;
+            margin: 40px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Наконец-то свадьба!</h1>
+        
+        <img src="1.jpg" alt="Илья и Ирина" class="wedding-image">
+        
+        <div class="names">Илья & Ирина</div>
+        
+        <div class="date">27 сентября 2025</div>
+        
+        <!-- Счётчик до свадьбы -->
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days"></div>
+                <div class="countdown-label">дней</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours"></div>
+                <div class="countdown-label">часов</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes"></div>
+                <div class="countdown-label">минут</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <div class="section-title">Программа</div>
+        
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="time">14:00 - 14:30</span>
+                <div class="event">Сбор гостей</div>
+            </div>
+            <div class="timeline-item">
+                <span class="time">15:00</span>
+                <div class="event">Банкет</div>
+            </div>
+            <div class="timeline-item">
+                <span class="time">16:30</span>
+                <div class="event">Караоке</div>
+            </div>
+            <div class="timeline-item">
+                <span class="time">19:00</span>
+                <div class="event">Торт</div>
+            </div>
+            <div class="timeline-item">
+                <span class="time">22:30</span>
+                <div class="event">Окончание праздника</div>
+            </div>
+        </div>
+        
+        <div class="divider"></div>
+        
+        <!-- Google Форма -->
+        <div class="section-title">Подтвердите присутствие</div>
+        <div class="google-form-container">
+            <iframe class="google-form" 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSeiLQuUxw11_es1iz_QBmwo-kX0cOWBF7BKlYMLFzmB-kyrPA/viewform?usp=header">
+                Загрузка...
+            </iframe>
+        </div>
+        
+        <div class="footer">Будем вас ждать!</div>
+    </div>
+
+    <script>
+        // Счётчик до свадьбы
+        function updateCountdown() {
+            const weddingDate = new Date('2025-09-27T00:00:00');
+            const now = new Date();
+            const diff = weddingDate - now;
+            
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+
+    </script>
+    </body>
+</html>
