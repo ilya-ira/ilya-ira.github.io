@@ -4,62 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Илья & Ирина - Свадьба 27.09.2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #8b5e3c;
+            --secondary-color: #d8b4a0;
+            --accent-color: #a78a7f;
+            --light-color: #f5ebe0;
+            --dark-color: #3a3228;
+        }
+        
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Open Sans', sans-serif;
-            background-color: #f8faf5;
-            color: #3a5a40;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
             line-height: 1.6;
-            position: relative;
-        }
-        
-        /* Зелёные боковые полосы */
-        body::before, body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            width: 100px;
-            background-color: #e8f5e9;
-            z-index: -1;
-        }
-        body::before {
-            left: 0;
-        }
-        body::after {
-            right: 0;
-        }
-        
-        @media (max-width: 900px) {
-            body::before, body::after {
-                width: 50px;
-            }
-        }
-        @media (max-width: 600px) {
-            body::before, body::after {
-                width: 20px;
-            }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
         }
         
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 900px;
+            width: 90%;
+            margin: 40px auto;
             padding: 40px 20px;
             text-align: center;
-            position: relative;
-            background-color: #f8faf5;
         }
         
         h1 {
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
-            color: #2b4634;
+            color: var(--primary-color);
             margin-bottom: 10px;
             font-weight: 700;
-            letter-spacing: 0.5px;
         }
         
         .wedding-image {
@@ -67,145 +48,148 @@
             max-width: 500px;
             height: auto;
             margin: 30px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border: 1px solid #e0e6d8;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border: 5px solid var(--secondary-color);
+            transition: transform 0.5s ease;
+        }
+        
+        .wedding-image:hover {
+            transform: rotate(5deg);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
         
         .names {
             font-family: 'Playfair Display', serif;
             font-size: 3.2rem;
-            color: #3a5a40;
+            color: var(--primary-color);
             margin: 30px 0;
             font-weight: 600;
-            letter-spacing: 1px;
         }
         
         .date {
             font-size: 2rem;
-            color: #2b4634;
+            color: var(--primary-color);
             margin: 40px 0;
-            font-weight: 400;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 2px;
         }
         
-        /* Счётчик до свадьбы */
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin: 30px 0;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', sans-serif;
         }
+        
         .countdown-item {
-            background: #edf3e9;
+            background: white;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             min-width: 80px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+            border: 1px solid var(--secondary-color);
         }
+        
         .countdown-number {
             font-size: 2rem;
-            color: #6b8f71;
+            color: var(--primary-color);
             font-weight: 700;
         }
+        
         .countdown-label {
             font-size: 0.9rem;
-            color: #3a5a40;
+            color: var(--accent-color);
             margin-top: 5px;
+            text-transform: uppercase;
         }
         
         .section-title {
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #2b4634;
-            margin: 50px 0 40px;
-            letter-spacing: 0.3px;
+            color: var(--primary-color);
+            margin: 50px 0 20px;
         }
         
-        /* Таймлайн */
         .timeline {
-            position: relative;
             max-width: 600px;
             margin: 0 auto;
-            padding: 40px 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 2px;
-            background-color: #b8c9b5;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -1px;
+            padding: 20px 0;
         }
         
         .timeline-item {
-            padding: 10px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-            text-align: left;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background-color: #fff;
-            border: 4px solid #6b8f71;
-            border-radius: 50%;
-            top: 15px;
-            z-index: 1;
-        }
-        
-        .timeline-item:nth-child(odd)::after {
-            right: -10px;
-        }
-        
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
+            padding: 15px 0;
+            width: 100%;
+            text-align: center;
         }
         
         .time {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            color: #6b8f71;
-            display: block;
-            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: var(--dark-color);
+            margin-bottom: 5px;
             font-size: 1.1rem;
         }
         
         .event {
-            background-color: #edf3e9;
-            padding: 12px 18px;
-            border-radius: 6px;
-            display: inline-block;
-            max-width: 220px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            border-left: 3px solid #6b8f71;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-top: 5px;
         }
         
-        /* Google Форма */
+        .hall-carousel {
+            max-width: 700px;
+            margin: 30px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+        }
+        
+        .carousel-slide img {
+            width: 100%;
+            display: block;
+        }
+        
+        .carousel-nav {
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 5px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .carousel-dot.active {
+            background: var(--primary-color);
+        }
+        
         .google-form-container {
             max-width: 700px;
             margin: 40px auto;
             padding: 30px;
-            background: #edf3e9;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+        
         .google-form {
             width: 100%;
             height: 600px;
@@ -213,37 +197,63 @@
         }
         
         .location, .dress-code {
-            font-size: 1.15rem;
-            margin: 30px 0;
-            line-height: 1.8;
             max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #3a5a40;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
         }
         
         .location-details {
-            font-size: 1rem;
-            color: #5a7262;
             max-width: 500px;
             margin: 20px auto;
             font-style: italic;
-            padding: 0 20px;
+            color: var(--accent-color);
         }
         
         .footer {
             margin-top: 60px;
-            font-size: 1.5rem;
-            color: #3a5a40;
             font-family: 'Playfair Display', serif;
-            font-weight: 600;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        .heart {
+            color: var(--primary-color);
+            margin: 0 5px;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
         }
         
         .divider {
             height: 1px;
-            background: linear-gradient(to right, transparent, #b8c9b5, transparent);
+            background: var(--secondary-color);
             width: 60%;
             margin: 40px auto;
+            opacity: 0.5;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .names {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -255,9 +265,8 @@
         
         <div class="names">Илья & Ирина</div>
         
-        <div class="date">27 сентября 2025</div>
+        <div class="date">27.09.25</div>
         
-        <!-- Счётчик до свадьбы -->
         <div class="countdown">
             <div class="countdown-item">
                 <div class="countdown-number" id="days"></div>
@@ -279,30 +288,29 @@
         
         <div class="timeline">
             <div class="timeline-item">
-                <span class="time">17:30 - 18:00</span>
-                <div class="event">Сбор гостей</div>
+                <div class="time">17:30 - 18:00</div>
+                <div class="event">СБОР ГОСТЕЙ</div>
             </div>
             <div class="timeline-item">
-                <span class="time">18:00</span>
-                <div class="event">Начало банкета</div>
+                <div class="time">18:00</div>
+                <div class="event">НАЧАЛО БАНКЕТА</div>
             </div>
             <div class="timeline-item">
-                <span class="time">19:00</span>
-                <div class="event">Караоке</div>
+                <div class="time">19:00</div>
+                <div class="event">КАРАОКЕ</div>
             </div>
             <div class="timeline-item">
-                <span class="time">21:00</span>
-                <div class="event">Торт</div>
+                <div class="time">21:00</div>
+                <div class="event">ТОРТ</div>
             </div>
             <div class="timeline-item">
-                <span class="time">22:30</span>
-                <div class="event">Окончание торжества</div>
+                <div class="time">22:30</div>
+                <div class="event">ОКОНЧАНИЕ ТОРЖЕСТВА</div>
             </div>
         </div>
         
         <div class="divider"></div>
         
-        <!-- Место проведения -->
         <div class="section-title">Место проведения</div>
         
         <div class="location">
@@ -310,14 +318,40 @@
         </div>
         
         <div class="location-details">
-            После моста, до входа в Измайловский кремль налево, вход под лестницей после кафе "Мельница", 1 этаж
+            После моста, до входа в Измайловский кремль - налево. Вход под лестницей после кафе "Мельница", 1 этаж
+        </div>
+
+        <div class="hall-carousel">
+            <div class="carousel-container" id="carousel">
+                <div class="carousel-slide">
+                    <img src="2.JPG" alt="Фото зала 1 - Общий вид">
+                </div>
+                <div class="carousel-slide">
+                    <img src="3.JPG" alt="Фото зала 2 - Банкетная зона">
+                </div>
+                <div class="carousel-slide">
+                    <img src="4.JPG" alt="Фото зала 3 - Танцпол">
+                </div>
+                <div class="carousel-slide">
+                    <img src="5.JPG" alt="Фото зала 4 - Зона фуршета">
+                </div>
+                <div class="carousel-slide">
+                    <img src="6.JPG" alt="Фото зала 5 - Вид со сцены">
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <span class="carousel-dot active" onclick="showSlide(0)"></span>
+                <span class="carousel-dot" onclick="showSlide(1)"></span>
+                <span class="carousel-dot" onclick="showSlide(2)"></span>
+                <span class="carousel-dot" onclick="showSlide(3)"></span>
+                <span class="carousel-dot" onclick="showSlide(4)"></span>
+            </div>
         </div>
         
         <div class="dress-code">
-            <strong>Дресс-код:</strong> Деловой, вечерний стиль. Пожалуйста, избегайте обилия белого и ярко-красного цветов в одежде.
+            <strong>Дресс-код:</strong> деловой, вечерний стиль. Пожалуйста, избегайте обилия белого и ярко-красного цветов в одежде
         </div>
         
-        <!-- Google Форма -->
         <div class="section-title">Подтвердите присутствие</div>
         <div class="google-form-container">
             <iframe class="google-form" 
@@ -326,11 +360,15 @@
             </iframe>
         </div>
         
-        <div class="footer">Будем вас ждать!</div>
+        <div class="footer">
+            Будем вас ждать
+            <span class="heart">❤</span>
+            <span class="heart">❤</span>
+            <span class="heart">❤</span>
+        </div>
     </div>
 
     <script>
-        // Счётчик до свадьбы
         function updateCountdown() {
             const weddingDate = new Date('2025-09-27T00:00:00');
             const now = new Date();
@@ -347,6 +385,24 @@
         
         updateCountdown();
         setInterval(updateCountdown, 60000);
+
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = 5;
+
+        function showSlide(n) {
+            currentSlide = (n + totalSlides) % totalSlides;
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
     </script>
 </body>
 </html>
