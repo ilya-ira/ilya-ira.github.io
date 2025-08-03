@@ -197,21 +197,6 @@
             border-left: 3px solid #6b8f71;
         }
         
-        /* Яндекс.Карта */
-        .map-container {
-            margin: 40px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border: 1px solid #d8e2d3;
-            height: 400px;
-        }
-        #yandex-map {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
         /* Google Форма */
         .google-form-container {
             max-width: 700px;
@@ -235,6 +220,15 @@
             margin-left: auto;
             margin-right: auto;
             color: #3a5a40;
+        }
+        
+        .location-details {
+            font-size: 1rem;
+            color: #5a7262;
+            max-width: 500px;
+            margin: 20px auto;
+            font-style: italic;
+            padding: 0 20px;
         }
         
         .footer {
@@ -285,28 +279,43 @@
         
         <div class="timeline">
             <div class="timeline-item">
-                <span class="time">14:00 - 14:30</span>
+                <span class="time">17:30 - 18:00</span>
                 <div class="event">Сбор гостей</div>
             </div>
             <div class="timeline-item">
-                <span class="time">15:00</span>
-                <div class="event">Банкет</div>
-            </div>
-            <div class="timeline-item">
-                <span class="time">16:30</span>
-                <div class="event">Караоке</div>
+                <span class="time">18:00</span>
+                <div class="event">Начало банкета</div>
             </div>
             <div class="timeline-item">
                 <span class="time">19:00</span>
+                <div class="event">Караоке</div>
+            </div>
+            <div class="timeline-item">
+                <span class="time">21:00</span>
                 <div class="event">Торт</div>
             </div>
             <div class="timeline-item">
                 <span class="time">22:30</span>
-                <div class="event">Окончание праздника</div>
+                <div class="event">Окончание торжества</div>
             </div>
         </div>
         
         <div class="divider"></div>
+        
+        <!-- Место проведения -->
+        <div class="section-title">Место проведения</div>
+        
+        <div class="location">
+            <strong>Адрес:</strong> Москва, Измайловское шоссе, 73Ж
+        </div>
+        
+        <div class="location-details">
+            После моста, до входа в Измайловский кремль налево, вход под лестницей после кафе "Мельница", 1 этаж
+        </div>
+        
+        <div class="dress-code">
+            <strong>Дресс-код:</strong> Деловой, вечерний стиль. Пожалуйста, избегайте обилия белого и ярко-красного цветов в одежде.
+        </div>
         
         <!-- Google Форма -->
         <div class="section-title">Подтвердите присутствие</div>
@@ -338,8 +347,6 @@
         
         updateCountdown();
         setInterval(updateCountdown, 60000);
-
     </script>
-    </body>
-
+</body>
 </html>
